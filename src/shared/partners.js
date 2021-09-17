@@ -9,7 +9,7 @@ export const PARTNERS = [
     {
         id: 1,
         name: "Park City",
-        image: "/assets/images/PC5.png",
+        image: "/assets/images/PC5.jpeg",
         featured: false,
         description: "One of the largest resorts in North America!"
     },
