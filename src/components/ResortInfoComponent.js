@@ -26,9 +26,8 @@ class CommentForm extends Component {
 
     handleSubmit(values) {
         this.toggleModal();
-        console.log('Current state is: ' + JSON.stringify(values));
-        alert('Current state is: ' + JSON.stringify(values));
-
+        this.props.addComment(this.props.resortId, values.rating, values.author, values.text);
+ 
     }
     render() {
         return (
@@ -96,7 +95,7 @@ class CommentForm extends Component {
         );
     }
 
-    function RenderComments({comments}) {
+    function RenderComments({comments, addComment, resortId}) {
         if (comments) {
             return (
                 <div className="col-md-5 m-1">
@@ -110,7 +109,7 @@ class CommentForm extends Component {
                             </p>
                         ))
                     }
-                    <CommentForm />
+                    <CommentForm resortId={resortId} addComment={addComment} />
                 </div>
             )
         }
@@ -133,7 +132,11 @@ class CommentForm extends Component {
                 </div>
                 <div className="row">
                 <RenderResort resort={props.resort} />
-                <RenderComments comments={props.comments} />
+                <RenderComments 
+                comments={props.comments}
+                addComment={props.addComment}
+                resortId={props.resort.id}
+                />
                 </div>
             </div>
             );

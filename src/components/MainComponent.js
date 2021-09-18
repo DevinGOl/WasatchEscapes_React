@@ -6,6 +6,7 @@ import ResortInfo from './ResortInfoComponent';
 import Contact from './ContactComponent';
 import Home from './HomeComponent';
 import AboutComponent from './AboutComponent';
+import { addComment } from '../redux/ActionCreators';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -16,6 +17,10 @@ const mapStateToProps = state => {
         partners: state.partners,
         promotions: state.promotions
     };
+};
+
+const mapDispatchToProps = {
+    addComment: (resortId, rating, author, text) => (addComment(resortId, rating, author, text))
 };
 
 class Main extends Component {
@@ -37,6 +42,7 @@ class Main extends Component {
                 <ResortInfo 
                     resort={this.props.resorts.filter(resort => resort.id === +match.params.resortId)[0]}
                     comments={this.props.comments.filter(comment => comment.resortId === +match.params.resortId)}
+                    addComment={this.props.addComment}
                 />
             );
         }; 
@@ -58,4 +64,4 @@ class Main extends Component {
     };
 }
 
-export default withRouter(connect(mapStateToProps)(Main));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Main));
