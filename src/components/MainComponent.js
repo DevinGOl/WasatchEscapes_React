@@ -6,7 +6,7 @@ import ResortInfo from './ResortInfoComponent';
 import Contact from './ContactComponent';
 import Home from './HomeComponent';
 import AboutComponent from './AboutComponent';
-import { addComment } from '../redux/ActionCreators';
+import { addComment, fetchResorts } from '../redux/ActionCreators';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -20,18 +20,25 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-    addComment: (resortId, rating, author, text) => (addComment(resortId, rating, author, text))
+    addComment: (resortId, rating, author, text) => (addComment(resortId, rating, author, text)),
+    fetchResorts: () => (fetchResorts())
+
 };
 
 class Main extends Component {
    
+    componentDidMount() {
+        this.props.fetchResorts();
+    }
 
     render() {
 
         const HomePage = () => {
             return (
                 <Home
-                resort={this.props.resorts.filter(resort => resort.featured)[0]}
+                resort={this.props.resorts.resorts.filter(resort => resort.featured)[0]}
+                resortsLoading={this.props.resorts.isLoading}
+                resortsErrMess={this.props.resorts.errMess}
                 promotion={this.props.promotions.filter(promotion => promotion.featured)[0]}
                 partner={this.props.partners.filter(partner => partner.featured)[0]} />
             );
@@ -40,7 +47,9 @@ class Main extends Component {
         const ResortWithId = ({match}) => {
             return (
                 <ResortInfo 
-                    resort={this.props.resorts.filter(resort => resort.id === +match.params.resortId)[0]}
+                    resort={this.props.resorts.resorts.filter(resort => resort.id === +match.params.resortId)[0]}
+                    isLoading={this.props.resorts.isLoading}
+                    errMess={this.props.resorts.errMess}
                     comments={this.props.comments.filter(comment => comment.resortId === +match.params.resortId)}
                     addComment={this.props.addComment}
                 />

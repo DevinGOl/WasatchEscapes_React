@@ -1,6 +1,8 @@
 import React from 'react';
 import { Card, CardImg, CardImgOverlay, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { Loading } from './LoadingComponent';
+
 
 
 function RenderDirectoryItem({resort, onClick}) {
@@ -19,13 +21,33 @@ function RenderDirectoryItem({resort, onClick}) {
 
 function Directory(props) {
 
-        const directory = props.resorts.map(resort => {
+        const directory = props.resorts.resorts.map(resort => {
             return (
                 <div key={resort.id} className = "col-md-5 m-1">
                  <RenderDirectoryItem resort={resort} />
                 </div>
             );
         });
+        if (props.resorts.isLoading) {
+            return (
+                <div className="container">
+                    <div className="row">
+                        <Loading />
+                    </div>
+                </div>
+            );
+        }
+        if (props.resorts.errMess) {
+            return (
+                <div className="container">
+                    <div className="row">
+                        <div className="col">
+                            <h4>{props.resorts.errMess}</h4>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
 
         return (
             <div className="container">
