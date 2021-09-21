@@ -6,6 +6,7 @@ import ResortInfo from './ResortInfoComponent';
 import Contact from './ContactComponent';
 import Home from './HomeComponent';
 import AboutComponent from './AboutComponent';
+import { actions } from 'react-redux-form';
 import { addComment, fetchResorts } from '../redux/ActionCreators';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -21,7 +22,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     addComment: (resortId, rating, author, text) => (addComment(resortId, rating, author, text)),
-    fetchResorts: () => (fetchResorts())
+    fetchResorts: () => (fetchResorts()),
+    resetFeedbackForm: () => (actions.reset('feedbackForm'))
 
 };
 
@@ -64,7 +66,7 @@ class Main extends Component {
                     <Route exact path='/directory' render={() => <Directory resorts={this.props.resorts} />} />
                     <Route exact path='/aboutus' render={() => <AboutComponent partners={this.props.partners} />} />
                     <Route path='/directory/:resortId' component={ResortWithId} />
-                    <Route exact path='/contactus' component={Contact} />
+                    <Route exact path='/contactus' render={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} />
                     <Redirect to='/home' />
                 </Switch>
                 <Footer />
