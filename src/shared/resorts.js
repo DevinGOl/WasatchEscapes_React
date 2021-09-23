@@ -4,7 +4,7 @@ export const RESORTS = [
         name: "Snowbird",
         image: "/assets/images/Snowbird1.jpeg",
         elevation: 11000,
-        featured: false,
+        featured: true,
         description: "Among the most challenging and beautiful resorts in North America!"
     },
     {

@@ -7,8 +7,9 @@ import Contact from './ContactComponent';
 import Home from './HomeComponent';
 import AboutComponent from './AboutComponent';
 import { actions } from 'react-redux-form';
-import { addComment, fetchResorts } from '../redux/ActionCreators';
+import { postComment, fetchResorts, fetchComments,fetchPromotions } from '../redux/ActionCreators';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => {
@@ -21,9 +22,11 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-    addComment: (resortId, rating, author, text) => (addComment(resortId, rating, author, text)),
+    postComment: (resortId, rating, author, text) => (postComment(resortId, rating, author, text)),
     fetchResorts: () => (fetchResorts()),
-    resetFeedbackForm: () => (actions.reset('feedbackForm'))
+    resetFeedbackForm: () => (actions.reset('feedbackForm')),
+    fetchComments: () => (fetchComments()),
+    fetchPromotions: () => (fetchPromotions())
 
 };
 
@@ -31,6 +34,8 @@ class Main extends Component {
    
     componentDidMount() {
         this.props.fetchResorts();
+        this.props.fetchComments();
+        this.props.fetchPromotions();
     }
 
     render() {
@@ -41,8 +46,12 @@ class Main extends Component {
                 resort={this.props.resorts.resorts.filter(resort => resort.featured)[0]}
                 resortsLoading={this.props.resorts.isLoading}
                 resortsErrMess={this.props.resorts.errMess}
-                promotion={this.props.promotions.filter(promotion => promotion.featured)[0]}
-                partner={this.props.partners.filter(partner => partner.featured)[0]} />
+                promotion={this.props.promotions.promotions.filter(promotion => promotion.featured)[0]}
+                promotionLoading={this.props.promotions.isLoading}
+                promotionErrMess={this.props.promotions.errMess}
+                partner={this.props.partners.filter(partner => partner.featured)[0]}
+                partnerLoading={this.props.partners.isLoading}
+                partnerErrMess={this.props.partners.errMess} />
             );
         };
 
@@ -52,8 +61,9 @@ class Main extends Component {
                     resort={this.props.resorts.resorts.filter(resort => resort.id === +match.params.resortId)[0]}
                     isLoading={this.props.resorts.isLoading}
                     errMess={this.props.resorts.errMess}
-                    comments={this.props.comments.filter(comment => comment.resortId === +match.params.resortId)}
-                    addComment={this.props.addComment}
+                    comments={this.props.comments.comments.filter(comment => comment.resortId === +match.params.resortId)}
+                    commentsErrMess={this.props.comments.errMess}
+                    postComment={this.props.postComment}
                 />
             );
         }; 
@@ -61,6 +71,8 @@ class Main extends Component {
         return (
             <div>
                 <Header />
+                <TransitionGroup>
+                    <CSSTransition key={this.props.location.key} classNames="page" timeout={300}>
                 <Switch>
                     <Route path='/home' component={HomePage} />
                     <Route exact path='/directory' render={() => <Directory resorts={this.props.resorts} />} />
@@ -69,6 +81,8 @@ class Main extends Component {
                     <Route exact path='/contactus' render={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} />
                     <Redirect to='/home' />
                 </Switch>
+                </CSSTransition>
+                </TransitionGroup>
                 <Footer />
             </div>
         );

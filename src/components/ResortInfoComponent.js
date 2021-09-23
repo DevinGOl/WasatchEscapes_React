@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import ModalHeader from 'reactstrap/lib/ModalHeader';
+import { baseUrl } from '../shared/baseUrl';
+
 
 const maxLength = len => val => !val || (val.length <= len);
 const minLength = len => val => val && (val.length >= len);
@@ -27,7 +29,7 @@ class CommentForm extends Component {
 
     handleSubmit(values) {
         this.toggleModal();
-        this.props.addComment(this.props.resortId, values.rating, values.author, values.text);
+        this.props.postComment(this.props.resortId, values.rating, values.author, values.text);
  
     }
     render() {
@@ -87,7 +89,7 @@ class CommentForm extends Component {
         return (
             <div className="col-md-5 m-1">
                 <Card>
-                    <CardImg top src={resort.image} alt={resort.name} />
+                    <CardImg top src={baseUrl + resort.image} alt={resort.name} />
                     <CardBody>
                         <CardText>{resort.description}</CardText>
                     </CardBody>
@@ -96,7 +98,7 @@ class CommentForm extends Component {
         );
     }
 
-    function RenderComments({comments, addComment, resortId}) {
+    function RenderComments({comments, postComment, resortId}) {
         if (comments) {
             return (
                 <div className="col-md-5 m-1">
@@ -110,7 +112,7 @@ class CommentForm extends Component {
                             </p>
                         ))
                     }
-                    <CommentForm resortId={resortId} addComment={addComment} />
+                    <CommentForm resortId={resortId} postComment={postComment} />
                 </div>
             )
         }
@@ -155,7 +157,7 @@ class CommentForm extends Component {
                 <RenderResort resort={props.resort} />
                 <RenderComments 
                 comments={props.comments}
-                addComment={props.addComment}
+                postComment={props.postComment}
                 resortId={props.resort.id}
                 />
                 </div>
