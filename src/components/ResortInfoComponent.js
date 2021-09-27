@@ -3,6 +3,7 @@ import { Card, CardImg, CardText, CardBody, Button, Breadcrumb, BreadcrumbItem, 
 import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { Control, LocalForm, Errors } from 'react-redux-form';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 import ModalHeader from 'reactstrap/lib/ModalHeader';
 import { baseUrl } from '../shared/baseUrl';
 
@@ -30,7 +31,7 @@ class CommentForm extends Component {
     handleSubmit(values) {
         this.toggleModal();
         this.props.postComment(this.props.resortId, values.rating, values.author, values.text);
- 
+
     }
     render() {
         return (
@@ -85,64 +86,78 @@ class CommentForm extends Component {
     };
 }
 
-    function RenderResort({resort}) {
-        return (
-            <div className="col-md-5 m-1">
+function RenderResort({ resort }) {
+    return (
+        <div className="col-md-5 m-1">
+            <FadeTransform
+                in
+                transformProps={{
+                    exitTransform: 'scale(0.5) translateY(-50%)'
+                }}>
                 <Card>
                     <CardImg top src={baseUrl + resort.image} alt={resort.name} />
                     <CardBody>
                         <CardText>{resort.description}</CardText>
                     </CardBody>
                 </Card>
+            </FadeTransform>
+        </div>
+    );
+}
+
+function RenderComments({ comments, postComment, resortId }) {
+    if (comments) {
+        return (
+            <div className="col-md-5 m-1">
+                <h4>Comments</h4>
+                <Stagger in>
+                    {
+                        comments.map(comment => {
+                            return (
+                                <Fade in key={comment.id}>
+                                    <div>
+                                        <p>
+                                            {comment.text}<br />
+                                            -- {comment.author} {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(comment.date)))}
+
+                                        </p>
+                                    </div>
+                                </Fade>
+                            );
+                        })
+                    }
+                </Stagger>
+                <CommentForm resortId={resortId} postComment={postComment} />
             </div>
         );
     }
+    return <div />
+}
 
-    function RenderComments({comments, postComment, resortId}) {
-        if (comments) {
-            return (
-                <div className="col-md-5 m-1">
-                    <h4>Comments</h4>
-                    {
-                        comments.map((comment) => (
-                            <p key={comment.id}>
-                                {comment.text}<br/>
-                                --{comment.author} {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
-
-                            </p>
-                        ))
-                    }
-                    <CommentForm resortId={resortId} postComment={postComment} />
+function ResortInfo(props) {
+    if (props.isLoading) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <Loading />
                 </div>
-            )
-        }
-        return <div />
+            </div>
+        );
     }
-
-    function ResortInfo(props) {
-        if (props.isLoading) {
-            return (
-                <div className="container">
-                    <div className="row">
-                        <Loading />
+    if (props.errMess) {
+        return (
+            <div className="container">
+                <div className="row">
+                    <div className="col">
+                        <h4>{props.errMess}</h4>
                     </div>
                 </div>
-            );
-        }
-        if (props.errMess) {
-            return (
-                <div className="container">
-                    <div className="row">
-                        <div className="col">
-                            <h4>{props.errMess}</h4>
-                        </div>
-                    </div>
-                </div>
-            );
-        }
-        if (props.resort) {
-            return (
-                <div className="container">
+            </div>
+        );
+    }
+    if (props.resort) {
+        return (
+            <div className="container">
                 <div className="row">
                     <div className="col">
                         <Breadcrumb>
@@ -154,17 +169,17 @@ class CommentForm extends Component {
                     </div>
                 </div>
                 <div className="row">
-                <RenderResort resort={props.resort} />
-                <RenderComments 
-                comments={props.comments}
-                postComment={props.postComment}
-                resortId={props.resort.id}
-                />
+                    <RenderResort resort={props.resort} />
+                    <RenderComments
+                        comments={props.comments}
+                        postComment={props.postComment}
+                        resortId={props.resort.id}
+                    />
                 </div>
             </div>
-            );
-        }
-        return <div />
+        );
     }
+    return <div />
+}
 
 export default ResortInfo;

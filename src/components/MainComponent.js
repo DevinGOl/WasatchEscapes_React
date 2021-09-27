@@ -7,7 +7,7 @@ import Contact from './ContactComponent';
 import Home from './HomeComponent';
 import AboutComponent from './AboutComponent';
 import { actions } from 'react-redux-form';
-import { postComment, fetchResorts, fetchComments,fetchPromotions } from '../redux/ActionCreators';
+import { postComment, fetchResorts, fetchComments,fetchPromotions, fetchPartners, postFeedback } from '../redux/ActionCreators';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
@@ -26,7 +26,9 @@ const mapDispatchToProps = {
     fetchResorts: () => (fetchResorts()),
     resetFeedbackForm: () => (actions.reset('feedbackForm')),
     fetchComments: () => (fetchComments()),
-    fetchPromotions: () => (fetchPromotions())
+    fetchPromotions: () => (fetchPromotions()),
+    fetchPartners: () => (fetchPartners()),
+    postFeedback:(feedback) => (postFeedback(feedback))
 
 };
 
@@ -36,6 +38,7 @@ class Main extends Component {
         this.props.fetchResorts();
         this.props.fetchComments();
         this.props.fetchPromotions();
+        this.props.fetchPartners();
     }
 
     render() {
@@ -49,9 +52,9 @@ class Main extends Component {
                 promotion={this.props.promotions.promotions.filter(promotion => promotion.featured)[0]}
                 promotionLoading={this.props.promotions.isLoading}
                 promotionErrMess={this.props.promotions.errMess}
-                partner={this.props.partners.filter(partner => partner.featured)[0]}
-                partnerLoading={this.props.partners.isLoading}
-                partnerErrMess={this.props.partners.errMess} />
+                partner={this.props.partners.partners.filter(partner => partner.featured)[0]}
+                partnersLoading={this.props.partners.isLoading}
+                partnersErrMess={this.props.partners.errMess} />
             );
         };
 

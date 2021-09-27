@@ -12,12 +12,17 @@ h1, h2, h3, .card-body>.card-title {
 }
 
 h2 {
-  color: #3046C5;
+  color: #000000;
 }
 
 .card-img-overlay .card-title {
   color: white;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.card-img {
+  height:350px;
+  
 }
 
 .row-content {
@@ -34,16 +39,23 @@ h2 {
 .jumbotron {
   margin: 0;
   padding: 30px;
-  background-image: linear-gradient(to right, #0fa10f, #7de97a, #075f1a);
-  color: white;
+  background-image: linear-gradient(to right, #ffffff, #7de97a, #075f1a);
+  color: rgb(0, 0, 0);
 }
 
 .jumbotron h2 {
-  color: #CEC8FF;
+  color: #2b2b2c;
 }
 
 .navbar-dark {
-  background-color: #097709;
+  background-color: #ffffff;
+}
+
+h4 {
+  color: black;
+  font-family: "Lobster", cursive;
+
+
 }
 
 .page-enter {

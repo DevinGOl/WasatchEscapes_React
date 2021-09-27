@@ -4,24 +4,24 @@ export const COMMENTS =
         id: 0,
         resortId: 0,
         rating: 5, 
-        text: "What a magnificent view!",
-        author: "Tinus Lorvaldes",
+        text: "Most incredible place on Earth!",
+        author: "James Cowart",
         date: "2018-10-25T16:30Z"
     },
     {
         id: 1,
         resortId: 0,
         rating: 4, 
-        text: "The campground was beautiful, but the bugs could bite sometimes.",
-        author: "Brennen Ech",
+        text: "Stunningly beautiful.",
+        author: "Logan Thomas",
         date: "2017-06-17T03:33Z"
     },
     {
         id: 2,
         resortId: 0,
         rating: 5, 
-        text: "I caught a world-record-breaking trout here on my last visit.",
-        author: "McKenzie Sebastian",
+        text: "The powder is out of this world",
+        author: "Owen Mankin",
         date: "2019-02-18T18:12Z"
     },
     {
@@ -29,7 +29,7 @@ export const COMMENTS =
         resortId: 0,
         rating: 5, 
         text: "A wonderful place to reconnect with nature.",
-        author: "Jordan Runn",
+        author: "DeMarcus Ware",
         date: "2019-08-04T20:11Z"
     },
     {
@@ -37,15 +37,15 @@ export const COMMENTS =
         resortId: 0,
         rating: 4, 
         text: "The stars at night were a revelation!",
-        author: "Ann Dabramov",
+        author: "Joe Ingles",
         date: "2018-07-23T19:44Z"
     },
     {
         id: 5,
         resortId: 1,
         rating: 4, 
-        text: "The campground was beautiful, but the bugs could bite sometimes.",
-        author: "Brennen Ech",
+        text: "The serenity experienced by a nighttime snowfall was unmatched.",
+        author: "Quincy Carter",
         date: "2017-06-17T03:33Z"
     },
     {

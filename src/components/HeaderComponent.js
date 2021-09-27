@@ -55,28 +55,28 @@ class Header extends Component {
 
                 <Navbar dark sticky="top" expand="md">
                     <div className="container">
-                        <NavbarBrand className="mr-auto" href="/"><img src="/assets/images/logo1.png" height="30" width="30" alt="Wasatch Logo" /></NavbarBrand>
+                        <NavbarBrand className="mr-auto" href="/"><img src="/assets/images/logo1.png" height="50" width="50" alt="Wasatch Logo" /></NavbarBrand>
                         <NavbarToggler onClick={this.toggleNav} />
                         <Collapse isOpen={this.state.isNavOpen} navbar>
                             <Nav navbar>
                                 <NavItem>
                                     <NavLink className="nav-link" to="/home">
-                                        <i className="fa fa-home fa-lg" /> Home
+                                       <h4> <i className="fa fa-home fa-lg" />Home</h4>
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="nav-link" to="/directory">
-                                        <i className="fa fa-list fa-lg" /> Directory
+                                       <h4> <i className="fa fa-list fa-lg" /> Directory</h4>
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="nav-link" to="/aboutus">
-                                        <i className="fa fa-info fa-lg" /> About
+                                      <h4>  <i className="fa fa-info fa-lg" /> About</h4>
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink className="nav-link" to="/contactus">
-                                        <i className="fa fa-address-card fa-lg" /> Contact Us
+                                     <h4>   <i className="fa fa-address-card fa-lg" /> Contact Us </h4>
                                     </NavLink>
                                 </NavItem>
                             </Nav>

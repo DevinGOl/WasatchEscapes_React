@@ -9,10 +9,10 @@ function Footer(props) {
                     <div className="col-4 col-sm-2 offset-1">
                         <h5>Links</h5>
                         <ul className="list-unstyled">
-                            <li><Link to='/home'>Home</Link></li>
-                            <li><Link to='/directory'>Directory</Link></li>
-                            <li><Link to='/aboutus'>About</Link></li>
-                            <li><Link to='/contactus'>Contact</Link></li>
+                            <li><Link style={{color:'black'}} to='/home'>Home</Link></li>
+                            <li><Link style={{color:'black'}} to='/directory'>Directory</Link></li>
+                            <li><Link style={{color:'black'}} to='/aboutus'>About</Link></li>
+                            <li><Link style={{color:'black'}} to='/contactus'>Contact</Link></li>
                         </ul>
                     </div>
                     <div className="col-6 col-sm-3 text-center">
@@ -23,8 +23,8 @@ function Footer(props) {
                         <a className="btn btn-social-icon btn-google" href="http://youtube.com/"><i className="fa fa-youtube" /></a>
                     </div>
                     <div className="col-sm-4 text-center">
-                        <a role="button" className="btn btn-link" href="tel:+5555555555"><i className="fa fa-phone" /> 1-206-555-1234</a><br />
-                        <a role="button" className="btn btn-link" href="mailto:notreal@notreal.co"><i className="fa fa-envelope-o" /> escape@wasatchescapes.com</a>
+                        <a role="button" className="btn btn-link" href="tel:+5555555555" style={{color:'black'}}><i className="fa fa-phone" /> 1-206-555-1234</a><br />
+                        <a role="button" className="btn btn-link" href="mailto:notreal@notreal.co" style={{color:'black'}}><i className="fa fa-envelope-o" /> escape@wasatchescapes.com</a>
                     </div>
                 </div>
             </div>

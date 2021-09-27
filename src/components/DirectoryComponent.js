@@ -7,7 +7,7 @@ import { baseUrl } from '../shared/baseUrl';
 
 
 
-function RenderDirectoryItem({resort, onClick}) {
+function RenderDirectoryItem({resort}) {
     return (
         <Card>
             <Link to={`/directory/${resort.id}`}>
