@@ -31,9 +31,10 @@
     "start": "react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "build": "CI= react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "server": "json-server -H 0.0.0.0 --watch public/db.json -p 3001 -d 2000"
    
   },
   "eslintConfig": {
