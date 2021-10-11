@@ -170,7 +170,7 @@ function ResortInfo(props) {
                 </div>
                 <div className="row">
                     <RenderResort resort={props.resort} />
-                    <RenderComments
+                    <RenderComments 
                         comments={props.comments}
                         postComment={props.postComment}
                         resortId={props.resort.id}
