@@ -3,6 +3,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 import { Loading } from './LoadingComponent';
 import { FadeTransform } from 'react-animation-components';
 import { baseUrl } from '../shared/baseUrl';
+import { useEffect } from 'react';
 
 
 
@@ -49,6 +50,9 @@ function Home(props) {
                     isLoading={props.partnersLoading}
                     errMess={props.partnersErrMess} />
                 </div>
+            </div>
+            <div className="row">
+                <h2>Hello</h2>
             </div>
         </div>
     );

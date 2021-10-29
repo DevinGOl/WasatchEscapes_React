@@ -1,0 +1,244 @@
+{
+  "resorts": [
+    {
+      "id": 0,
+      "name": "Snowbird",
+      "image": "images/Snowbird1.jpeg",
+      "elevation": 11000,
+      "featured": false,
+      "description": "Among the most challenging and beautiful resorts in North America!"
+    },
+    {
+      "id": 1,
+      "name": "Alta ",
+      "image": "images/alta.jpeg",
+      "elevation": 10898,
+      "featured": false,
+      "description": "Known for holding to the true essence of skiing, making it a destination for those across the world!"
+    },
+    {
+      "id": 2,
+      "name": "Solitude",
+      "image": "images/BackG1.jpeg",
+      "elevation": 10083,
+      "featured": false,
+      "description": "Experience true solitude at this gem up Big Cottonwood Canyon!"
+    },
+    {
+      "id": 3,
+      "name": "Brighton",
+      "image": "images/Bright.jpeg",
+      "elevation": 10784,
+      "featured": true,
+      "description": "They don't call it the greatest snow on Earth for nothing! Experience it at Brighton!"
+    }
+  ],
+  "comments": [
+    {
+      "id": 0,
+      "resortId": 0,
+      "rating": 5,
+      "text": "Most beautiful place on Earth!",
+      "author": "Jimmy Johnson",
+      "date": "2018-10-25T16:30Z"
+    },
+    {
+      "id": 1,
+      "resortId": 0,
+      "rating": 4,
+      "text": "Fresh POW is good for the soul.",
+      "author": "Kevin Kisner",
+      "date": "2017-06-17T03:33Z"
+    },
+    {
+      "id": 2,
+      "resortId": 0,
+      "rating": 5,
+      "text": "Could hang out all day up at Summit Peak!",
+      "author": "Roy Williams",
+      "date": "2019-02-18T18:12Z"
+    },
+    {
+      "id": 3,
+      "resortId": 0,
+      "rating": 5,
+      "text": "Like being transported to another world",
+      "author": "Logan Mankin",
+      "date": "2019-08-04T20:11Z"
+    },
+    {
+      "id": 4,
+      "resortId": 0,
+      "rating": 4,
+      "text": "Serenity at its finest!",
+      "author": "John Seamus",
+      "date": "2018-07-23T19:44Z"
+    },
+    {
+      "id": 5,
+      "resortId": 1,
+      "rating": 4,
+      "text": "Old school skiing, back to a forgotten time",
+      "author": "Justin Thomas",
+      "date": "2017-06-17T03:33Z"
+    },
+    {
+      "id": 6,
+      "resortId": 1,
+      "rating": 5,
+      "text": "Doesn't get any better",
+      "author": "McKenzie Hughes",
+      "date": "2019-02-18T18:12Z"
+    },
+    {
+      "id": 7,
+      "resortId": 1,
+      "rating": 5,
+      "text": "Deep, DEEP POW",
+      "author": "Dustin Johnson",
+      "date": "2019-08-04T20:11Z"
+    },
+    {
+      "id": 8,
+      "resortId": 1,
+      "rating": 4,
+      "text": "Little Cottonwood Canyon is a revelation!",
+      "author": "Tony Finau",
+      "date": "2018-07-23T19:44Z"
+    },
+    {
+      "id": 9,
+      "resortId": 1,
+      "rating": 5,
+      "text": "Amazing!",
+      "author": "Lee Westwood",
+      "date": "2018-10-25T16:30Z"
+    },
+    {
+      "id": 10,
+      "resortId": 2,
+      "rating": 5,
+      "text": "Spent the day in Honeycomb Canyon and was amazing!",
+      "author": "Tom Glavine",
+      "date": "2019-02-18T18:12Z"
+    },
+    {
+      "id": 11,
+      "resortId": 2,
+      "rating": 5,
+      "text": "Truly a place to go to find Solitude.",
+      "author": "John Smoltz",
+      "date": "2019-08-04T20:11Z"
+    },
+    {
+      "id": 12,
+      "resortId": 2,
+      "rating": 4,
+      "text": "Such a fun and relaxing day!",
+      "author": "Kevin Millwood",
+      "date": "2018-07-23T19:44Z"
+    },
+    {
+      "id": 13,
+      "resortId": 2,
+      "rating": 5,
+      "text": "The food is spectacular!",
+      "author": "Tim Hudson",
+      "date": "2018-10-25T16:30Z"
+    },
+    {
+      "id": 14,
+      "resortId": 2,
+      "rating": 4,
+      "text": "Never too crowded on weekdays, had the slopes to myself!",
+      "author": "Max Fried",
+      "date": "2017-06-17T03:33Z"
+    },
+    {
+      "id": 15,
+      "resortId": 3,
+      "rating": 5,
+      "text": "Great resort to bring the whole family.",
+      "author": "Rudy Gobert",
+      "date": "2019-08-04T20:11Z"
+    },
+    {
+      "id": 16,
+      "resortId": 3,
+      "rating": 4,
+      "text": "The snow here is out of this world!",
+      "author": "Jordan Clarkson",
+      "date": "2018-07-23T19:44Z"
+    },
+    {
+      "id": 17,
+      "resortId": 3,
+      "rating": 5,
+      "text": "So many great memories on this mountain!",
+      "author": "Mike Conley",
+      "date": "2018-10-25T16:30Z"
+    },
+    {
+      "id": 18,
+      "resortId": 3,
+      "rating": 4,
+      "text": "Snow up to my waist!",
+      "author": "Donovan Mitchell",
+      "date": "2017-06-17T03:33Z"
+    },
+    {
+      "id": 19,
+      "resortId": 3,
+      "rating": 5,
+      "text": "I hated to leave!",
+      "author": "Tony Bradley",
+      "date": "2019-02-18T18:12Z"
+    },
+    {
+      "resortId": 0,
+      "author": "Devin",
+      "text": "Awesome!",
+      "date": "2021-10-11T04:13:09.667Z",
+      "id": 20
+    }
+  ],
+  "partners": [
+    {
+      "id": 0,
+      "name": "Deer Valley",
+      "image": "images/DV6.png",
+      "featured": false,
+      "description": "Luxury on and off the slopes!"
+    },
+    {
+      "id": 1,
+      "name": "Park City",
+      "image": "images/PC5.jpeg",
+      "featured": false,
+      "description": "One of the largest resorts in North America!"
+    },
+    {
+      "id": 2,
+      "name": "Snowbasin",
+      "image": "images/SnowBas7.png",
+      "featured": false,
+      "description": "A hidden gem in the northern Wasatch!"
+    },
+    {
+      "id": 3,
+      "name": "Powder Mountain",
+      "image": "images/Pow8.jpeg",
+      "featured": true,
+      "description": "Truly lives up to its name!"
+    }
+  ],
+  "promotions": [
+    {
+      "id": 0,
+      "name": "Mountain Adventure",
+      "image": "images/connect1.jpg",
+      "featured": true,
+      "description": "Book a 5-day mountain trek with a seasoned outdoor guide! Ski touring equipment provided."
+    }
+  ]
+}
